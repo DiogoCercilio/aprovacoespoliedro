@@ -175,7 +175,7 @@ var settingsFancyBox = function(){
 				'transitionIn'	: 'none',
 				'transitionOut'	: 'none',
 				'title'			: this.title,
-				'width'		: 680,
+				'width'			: 680,
 				'height'		: 495,
 				'href'			: this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
 				'type'			: 'swf',
@@ -202,7 +202,7 @@ $(function() {
 			$elems		= $list.find('img'),
 			$descrp		= $list.find('div.pe-description'),
 			settings	= {
-				maxScale	: 1.3,
+				maxScale	: 1.04,
 				maxOpacity	: 0.9,
 				minOpacity	: Number( $elems.css('opacity') )
 			},
@@ -308,7 +308,7 @@ var carrousel = function(el){
                 var item_width = $(el + ' .carousel_ul li').outerWidth() + 10;
         
         var left_indent = parseInt($(el + ' .carousel_ul').css('left')) - item_width;            
-        $(el + ' .carousel_ul:not(:animated)').animate({'left' : left_indent},200,function(){                    
+        $(el + ' .carousel_ul:not(:animated)').animate({'left' : left_indent},500,function(){                    
             $(el + ' .carousel_ul li:last').after($(el + ' .carousel_ul li:first')); 
             $(el + ' .carousel_ul').css({'left' : '-160px'});
         }); 
@@ -324,6 +324,39 @@ var carrousel = function(el){
             $(el + ' .carousel_ul').css({'left' : '-160px'});
         });
     });	
+
+    triggerCarouselModal();
+}
+
+var triggerCarouselModal = function(){
+    $('.close-box').click(function(){
+      $('.box-carrousel').fadeOut(200);
+    })
+
+    $('#ita .carousel_inner li').click(function(){
+      $('.box-carrousel').hide();
+      $('#box-one').fadeIn(200);
+    })  
+
+    $('#medicina .carousel_inner li').click(function(){
+      $('.box-carrousel').hide();
+      $('#box-two').fadeIn(200);
+    })  
+
+    $('#engenharia .carousel_inner li').click(function(){
+      $('.box-carrousel').hide();
+      $('#box-three').fadeIn(200);
+    })  
+
+    $('#humanas .carousel_inner li').click(function(){
+      $('.box-carrousel').hide();
+      $('#box-four').fadeIn(200);
+    })  
+
+    $('#biologicas .carousel_inner li').click(function(){
+      $('.box-carrousel').hide();
+      $('#box-five').fadeIn(200);
+    })                   
 }
 
 window.onload = function () {
